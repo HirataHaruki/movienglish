@@ -71,3 +71,26 @@ h1,h2 {
   width: 100%;
   z-index: 10000;
 }
+
+.user-show-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('toppage.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+.user-show-container {
+  padding-top: 220px;
+  h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    margin-bottom: 60px;
+  }
+}
