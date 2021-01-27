@@ -1,0 +1,27 @@
+<div class="topic-index-wrapper">
+  <div class="container">
+    <% @topics.each do |topic| %>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="topic-index-single">
+            <h2 class="topic-author">
+              <%= topic.user.name %>
+            </h2>
+            <p class="topic-title">
+              <%= "作品名" + topic.title %>
+            </p>
+            <p class="topic-text">
+              <%= "作品内容" + topic.description %>
+            </p>
+            <p class="topic-text">
+              <%= "難易度" + topic.level %>
+            </p>
+            <p class="topic-text">
+              <%= "お気に入りのセリフ" + topic.favorite_line %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
