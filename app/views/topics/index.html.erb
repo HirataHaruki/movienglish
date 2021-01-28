@@ -8,17 +8,22 @@
               <%= topic.user.name %>
             </h2>
             <p class="topic-title">
-              <%= "作品名" + topic.title %>
+              <%= "作品名:" + topic.title %>
             </p>
             <p class="topic-text">
-              <%= "作品内容" + topic.description %>
+              <%= "作品内容:" + topic.description %>
             </p>
             <p class="topic-text">
-              <%= "難易度" + topic.level %>
+              <%= "難易度:" + topic.level %>
             </p>
             <p class="topic-text">
-              <%= "お気に入りのセリフ" + topic.favorite_line %>
+              <%= "お気に入りのセリフ:" + topic.favorite_line %>
             </p>
+            <% if !topic.favorite_users.include?(current_user) %>
+              <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+                <i class="fas fa-thumbs-up favorite-icon"></i>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
