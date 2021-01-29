@@ -23,7 +23,22 @@
               <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
                 <i class="fas fa-thumbs-up favorite-icon"></i>
               <% end %>
+            <% else %>
+              <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
+                <i class="fas fa-thumbs-up favorite-icon-red"></i>
+              <% end %>
             <% end %>
+            <%= topic.favorites.count %>
+            <% if !topic.unfavorite_users.include?(current_user) %>
+              <%= link_to unfavorites_path(topic_id: topic.id), method: :post do %>
+                <i class="fas fa-thumbs-down favorite-icon"></i>
+              <% end %>
+            <% else %>
+              <%= link_to unfavorites_path(topic_id: topic.id), method: :delete do %>
+                <i class="fas fa-thumbs-down favorite-icon-red"></i>
+              <% end %>
+            <% end %>
+            <%= topic.unfavorites.count %>
           </div>
         </div>
       </div>

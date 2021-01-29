@@ -140,7 +140,13 @@ h1,h2 {
     .favorite-icon {
       font-weight: 900;
       font-family: "Font Awesome 5 Free";
-      content: "\f164";
+      color: black;
+    }
+    
+    .favorite-icon-red {
+      font-weight: 900;
+      font-family: "Font Awesome 5 Free";
+      color: red;
     }
   }
 }
