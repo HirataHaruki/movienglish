@@ -1,0 +1,23 @@
+<%= form_for @topic do |f| %>
+  <div class="form-group">
+    <%= f.label :作品名 %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <%= f.label :作品内容 %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="form-group">
+    <%= f.label :難易度 %>
+    <%= f.select :level, ['英検1級レベル・TOEIC850点レベル', '英検準1級レベル・TOEIC700点レベル', '英検2級レベル・TOEIC550点レベル', 'その他'] %>
+  </div>
+  <div class="form-group">
+    <%= f.label :お気に入りのセリフ %>
+    <%= f.text_area :favorite_line %>
+  </div>
+          
+  <% if logged_in? %>
+    <%= f.submit '投稿', class: 'btn btn-block btn-black' %>
+  <% end %>
+          
+<% end %>

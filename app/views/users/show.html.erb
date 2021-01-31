@@ -1,5 +1,32 @@
 <div class="user-show-wrapper">
   <div class="container">
-    <h1 class="text-center text-white">マイページ</h1>
+    <h1 class="user-show-title">
+      <%= @user.name + "さんのマイページ" %>
+    </h1>
+    <h2 class="user-show-title">
+      <%= @user.name + "さんの投稿件数:" + @user.topics.count.to_s %>
+    </h2>
+    <h2 class="user-show-title">
+      <%= @user.name + "さんの投稿一覧" %>
+    </h2>
+    <% @user.topics.each do |usertopic| %>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h3 class="topic-title user-show-text">
+            <%= "作品名:" + usertopic.title %>
+          </h3>
+          <p class="topic-text user-show-text">
+            <%= "作品内容:" + usertopic.description %>
+          </p>
+          <p class="topic-text user-show-text">
+            <%= "難易度:" + usertopic.level %>
+          </p>
+          <p class="topic-text user-show-text">
+            <%= "お気に入りのセリフ:" + usertopic.favorite_line %>
+          </p>
+          <%= link_to '編集', edit_topic_path(usertopic.id), class:'user-show-text' %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

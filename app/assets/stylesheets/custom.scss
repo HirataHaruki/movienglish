@@ -1,5 +1,16 @@
-h1,h2 {
-  font-weight: 100;
+h1 {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 200;
 }
 
 .text-white {
@@ -33,11 +44,12 @@ h1,h2 {
 .top-hero-container {
   padding-top: 220px;
   h1 {
-    font-size: 56px;
+    font-size: 40px;
     margin-bottom: 20px;
   }
 
   h2 {
+    font-size: 30px;
     margin-bottom: 60px;
   }
 }
@@ -73,6 +85,7 @@ h1,h2 {
 }
 
 .user-show-wrapper {
+  padding-top: 70px;
   width: 100vw;
   height: 100vh;
   background-image: url('toppage.jpg');
@@ -81,17 +94,13 @@ h1,h2 {
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
-}
-
-.user-show-container {
-  padding-top: 220px;
-  h1 {
-    font-size: 56px;
-    margin-bottom: 20px;
+  
+  .user-show-title {
+    color: #fff;
   }
-
-  h2 {
-    margin-bottom: 60px;
+  
+  .user-show-text {
+    color: #fff;
   }
 }
 
@@ -117,6 +126,10 @@ h1,h2 {
   padding-top: 120px;
 }
 
+.topic-edit-wrapper {
+  padding-top: 120px;
+}
+
 .topic-index-wrapper {
   padding-top: 70px;
   background-color: #fafafa;
@@ -128,6 +141,11 @@ h1,h2 {
     border: 1px solid #e6ecf0;
     border-radius: 3px;
     .topic-author {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    
+    .topic-title {
       padding-right: 20px;
       padding-left: 20px;
     }

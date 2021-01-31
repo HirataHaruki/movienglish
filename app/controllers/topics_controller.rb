@@ -18,8 +18,27 @@ class TopicsController < ApplicationController
     end
   end
   
+  def edit
+    @topic = find_topic_by_id
+  end
+  
+  def update
+    @topic = find_topic_by_id
+    
+    if @topic.update(topic_params)
+      redirect_to user_path(current_user.id), success: '投稿の編集に成功しました'
+    else
+      flash.now[:danger] = "投稿の編集に失敗しました"
+      render :edit
+    end
+  end
+  
   private
   def topic_params
     params.require(:topic).permit(:title, :description, :level, :favorite_line)
+  end
+  
+  def find_topic_by_id
+    Topic.find(params[:id])
   end
 end
