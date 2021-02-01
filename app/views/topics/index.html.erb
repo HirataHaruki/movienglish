@@ -39,6 +39,10 @@
               <% end %>
             <% end %>
             <%= topic.unfavorites.count %>
+            <% if logged_in? && current_user.id == topic.user_id %>
+              <%= link_to '編集', edit_topic_path(topic.id), class:'topic-text' %>
+              <%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: "本当に削除しますか?"}, class:'topic-text' %>
+            <% end %>
           </div>
         </div>
       </div>

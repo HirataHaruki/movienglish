@@ -33,6 +33,17 @@ class TopicsController < ApplicationController
     end
   end
   
+  def destroy
+    @topic = find_topic_by_id
+    
+    if @topic.destroy
+      redirect_to topics_path, success: '投稿を削除しました'
+    else
+      flash.now[:danger] = "投稿の削除に失敗しました"
+      redirect_to topics_path
+    end
+  end
+  
   private
   def topic_params
     params.require(:topic).permit(:title, :description, :level, :favorite_line)

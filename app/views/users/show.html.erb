@@ -25,6 +25,7 @@
             <%= "お気に入りのセリフ:" + usertopic.favorite_line %>
           </p>
           <%= link_to '編集', edit_topic_path(usertopic.id), class:'user-show-text' %>
+          <%= link_to '削除', topic_path(usertopic.id), method: :delete, data: {confirm: "本当に削除しますか?"}, class:'user-show-text' %>
         </div>
       </div>
     <% end %>
