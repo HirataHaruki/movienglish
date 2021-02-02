@@ -26,7 +26,7 @@ class TopicsController < ApplicationController
     @topic = find_topic_by_id
     
     if @topic.update(topic_params)
-      redirect_to user_path(current_user.id), success: '投稿の編集に成功しました'
+      redirect_to topics_path, success: '投稿の編集に成功しました'
     else
       flash.now[:danger] = "投稿の編集に失敗しました"
       render :edit

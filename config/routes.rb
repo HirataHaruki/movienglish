@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   
   resources :users
-  resources :topics
+  resources :topics do
+    resources :comments
+  end
   
   get 'favorites/index', to: 'favorites#index'
   post '/favorites', to: 'favorites#create'

@@ -39,9 +39,22 @@
               <% end %>
             <% end %>
             <%= topic.unfavorites.count %>
+            <%= link_to new_topic_comment_path(topic_id: topic.id) do %>
+              <i class="far fa-comment fa-2x comment-icon"></i>
+            <% end %>
+            <h3 class="topic-title">コメント</h3>
+              <% topic.comments.each do |comment| %>
+                <p class="topic-text">
+                  <%= comment.content %>
+                </p>
+                <% if logged_in? && current_user.id == comment.user_id %>
+                  <%= link_to 'コメント編集', edit_topic_comment_path(topic_id: topic.id, id: comment.id), class: 'topic-text' %>
+                  <%= link_to 'コメント削除', topic_comment_path(topic_id: topic.id, id: comment.id), method: :delete, class: 'topic-text' %>
+                <% end %>
+              <% end %>
             <% if logged_in? && current_user.id == topic.user_id %>
-              <%= link_to '編集', edit_topic_path(topic.id), class:'topic-text' %>
-              <%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: "本当に削除しますか?"}, class:'topic-text' %>
+              <%= link_to '編集', edit_topic_path(topic.id), class: 'topic-text' %>
+              <%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: "本当に削除しますか?"}, class: 'topic-text' %>
             <% end %>
           </div>
         </div>
