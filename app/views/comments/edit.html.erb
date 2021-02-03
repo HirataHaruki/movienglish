@@ -3,14 +3,9 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h1 class="text-center">コメント編集</h>
-        <%= form_for @comment, url: topic_comment_path, method: :put do |f| %>
-          <div class="form-group">
-            <%= f.label :本文 %>
-            <%= f.text_area :content, class: 'form-control' %>
-            <%= f.hidden_field :topic_id, :value => params[:topic_id] %>
-          </div>
-          <%= f.submit 'コメント投稿', class: 'btn btn-block btn-black' %>
-        <% end %>
+        
+        <%= render "form" %>
+        
       </div>
     </div>
   </div>

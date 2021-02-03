@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @search = Topic.ransack(params[:q])
+    @topics = @search.result
   end
   
   def new
