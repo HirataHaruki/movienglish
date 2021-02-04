@@ -10,22 +10,24 @@
       <%= @user.name + "さんの投稿一覧" %>
     </h2>
     <% @user.topics.each do |usertopic| %>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <h3 class="topic-title user-show-text">
-            <%= "作品名:" + usertopic.title %>
-          </h3>
-          <p class="topic-text user-show-text">
-            <%= "作品内容:" + usertopic.description %>
-          </p>
-          <p class="topic-text user-show-text">
-            <%= "難易度:" + usertopic.level %>
-          </p>
-          <p class="topic-text user-show-text">
-            <%= "お気に入りのセリフ:" + usertopic.favorite_line %>
-          </p>
-          <%= link_to '編集', edit_topic_path(usertopic.id), class:'user-show-text' %>
-          <%= link_to '削除', topic_path(usertopic.id), method: :delete, data: {confirm: "本当に削除しますか?"}, class:'user-show-text' %>
+      <div class="topic-index-single">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <h3 class="topic-title user-show-text">
+              <%= "作品名:" + usertopic.title %>
+            </h3>
+            <p class="topic-text user-show-text">
+              <%= "作品内容:" + usertopic.description %>
+            </p>
+            <p class="topic-text user-show-text">
+              <%= "難易度:" + usertopic.level %>
+            </p>
+            <p class="topic-text user-show-text">
+              <%= "お気に入りのセリフ:" + usertopic.favorite_line %>
+            </p>
+            <%= link_to '編集', edit_topic_path(usertopic.id), class:'user-show-text' %>
+            <%= link_to '削除', topic_path(usertopic.id), method: :delete, data: {confirm: "本当に削除しますか?"}, class:'user-show-text' %>
+          </div>
         </div>
       </div>
     <% end %>

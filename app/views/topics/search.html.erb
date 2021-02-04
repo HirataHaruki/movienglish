@@ -1,0 +1,71 @@
+<div class="topic-search-wrapper">
+  <div class="container">
+    <h1 class="topic-search-title">投稿を検索</h1>
+    <%= form_with url: search_topics_path, method: :get, local: true do |f| %>
+      <%= f.text_field :keyword %>
+      <%= f.submit "検索" %>
+    <% end %>
+    
+    <% if @topics.count == 0 %>
+      <h2>検索結果はありませんでした</h2>
+    <% else %>
+      <% @topics.each do |topic| %>
+        <div class="topic-index-single">
+          <h2 class="topic-author">
+            <%= topic.user.name %>
+          </h2>
+          <h3 class="topic-title">
+            <%= "作品名:" + topic.title %>
+          </h3>
+          <p class="topic-text">
+            <%= "作品内容:" + topic.description %>
+          </p>
+          <p class="topic-text">
+            <%= "難易度:" + topic.level %>
+          </p>
+          <p class="topic-text">
+            <%= "お気に入りのセリフ:" + topic.favorite_line %>
+          </p>
+          <% if !topic.favorite_users.include?(current_user) %>
+            <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+              <i class="fas fa-thumbs-up fa-2x favorite-icon"></i>
+            <% end %>
+          <% else %>
+            <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
+              <i class="fas fa-thumbs-up fa-2x favorite-icon-red"></i>
+            <% end %>
+          <% end %>
+          <%= topic.favorites.count %>
+            <% if !topic.unfavorite_users.include?(current_user) %>
+              <%= link_to unfavorites_path(topic_id: topic.id), method: :post do %>
+                <i class="fas fa-thumbs-down fa-2x favorite-icon"></i>
+              <% end %>
+            <% else %>
+              <%= link_to unfavorites_path(topic_id: topic.id), method: :delete do %>
+                <i class="fas fa-thumbs-down fa-2x favorite-icon-red"></i>
+              <% end %>
+            <% end %>
+            <%= topic.unfavorites.count %>
+            <%= link_to new_topic_comment_path(topic_id: topic.id) do %>
+              <i class="far fa-comment fa-2x comment-icon"></i>
+            <% end %>
+            <%= topic.comments.count %>
+            <h3 class="topic-title">コメント</h3>
+              <% topic.comments.each do |comment| %>
+                <p class="topic-text">
+                  <%= comment.content %>
+                </p>
+                <% if logged_in? && current_user.id == comment.user_id %>
+                  <%= link_to 'コメント編集', edit_topic_comment_path(topic_id: topic.id, id: comment.id), class: 'topic-text' %>
+                  <%= link_to 'コメント削除', topic_comment_path(topic_id: topic.id, id: comment.id), method: :delete, class: 'topic-text' %>
+                <% end %>
+              <% end %>
+            <% if logged_in? && current_user.id == topic.user_id %>
+              <%= link_to '投稿編集', edit_topic_path(topic.id), class: 'topic-text' %>
+              <%= link_to '投稿削除', topic_path(topic.id), method: :delete, data: {confirm: "本当に削除しますか?"}, class: 'topic-text' %>
+            <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

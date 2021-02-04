@@ -86,21 +86,24 @@ h3 {
 
 .user-show-wrapper {
   padding-top: 70px;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('toppage.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #464646;
+  background-color: #E6E6FA;
+  .topic-index-single {
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
   
-  .user-show-title {
-    color: #fff;
-  }
+    .topic-title {
+      padding-right: 20px;
+      padding-left: 20px;
+    }  
   
-  .user-show-text {
-    color: #fff;
+    .topic-text {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
   }
 }
 
@@ -181,4 +184,49 @@ h3 {
 
 .comment-edit-wrapper {
   padding-top: 120px;
+}
+
+.topic-search-wrapper {
+  padding-top: 70px;
+  background-color: #fafafa;
+  .topic-index-single {
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+    .topic-author {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    
+    .topic-title {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+
+    .topic-text {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    
+    .favorite-icon {
+      font-weight: 900;
+      font-family: "Font Awesome 5 Free";
+      color: black;
+    }
+    
+    .favorite-icon-red {
+      font-weight: 900;
+      font-family: "Font Awesome 5 Free";
+      color: red;
+    }
+    
+    .comment-icon {
+      font-weight: 400;
+      font-family: "Font Awesome 5 Free";
+      color: black;
+    }
+  }
 }

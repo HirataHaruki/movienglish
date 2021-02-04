@@ -1,7 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @search = Topic.ransack(params[:q])
-    @topics = @search.result
+    @topics = Topic.all
   end
   
   def new
@@ -42,6 +41,14 @@ class TopicsController < ApplicationController
     else
       flash.now[:danger] = "投稿の削除に失敗しました"
       redirect_to topics_path
+    end
+  end
+  
+  def search
+    if params[:keyword]
+      @topics = Topic.where('title LIKE (?) OR description LIKE (?) OR level LIKE (?) OR favorite_line LIKE (?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+    else
+      @topics = Topic.none
     end
   end
   

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
   resources :users
   resources :topics do
+    get :search, on: :collection
     resources :comments
   end
   
