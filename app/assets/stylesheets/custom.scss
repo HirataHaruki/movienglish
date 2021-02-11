@@ -13,32 +13,10 @@ h3 {
   font-weight: 200;
 }
 
-.text-white {
-  color: #fff;
-}
-
-.btn-white {
-  color: #fff;
-  border: 1px solid #fff;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 20px;
-  background-color: rgba(0,0,0,0.0);
-  
-  &:hover {
-    color: rgb(255,0,0);
-  }
-}
-
 .top-hero-wrapper {
-  width: 100vw;
-  height: 100vh;
-  background-image: url('toppage.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #464646;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: #FFB6C1;
 }
 
 .top-hero-container {
@@ -59,22 +37,25 @@ h3 {
 }
 
 .users-new-wrapper {
-  width: 100vw;
-  height: 100vh;
-  background-image: image-url('toppage.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #464646;
+  padding-top: 120px;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: #FFFFE0;
 
   .users-new-container {
-    padding-top: 220px;
+    padding-top: 150px;
 
     .form-group {
       margin-bottom: 20px;
     }
   }
+}
+
+.sessions-new-wrapper {
+  padding-top: 120px;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: #FFFFE0;
 }
 
 .alert {
@@ -85,8 +66,10 @@ h3 {
 }
 
 .user-show-wrapper {
-  padding-top: 70px;
+  padding-top: 120px;
   background-color: #E6E6FA;
+  min-width: 100vw;
+  min-height: 100vh;
   .topic-index-single {
     background-color: #fff;
     padding-top: 20px;
@@ -107,35 +90,38 @@ h3 {
   }
 }
 
-.navbar-brand {
-  padding: 0px;
-  margin-top: 15px;
-}
-
 .btn-black {
-  color: #565656;
-  border: 1px solid #565656;
+  color: #000000;
+  border: 1px solid #000000;
   padding-top: 15px;
   padding-bottom: 15px;
   font-size: 20px;
   background-color: rgba(0,0,0,0.0);
 
   &:hover {
-    color: #565656;
+    color: #FFFF00;
   }
 }
 
 .topic-new-wrapper {
+  min-width: 100vw;
+  min-height: 100vh;
   padding-top: 120px;
+  background-color: #00FF7F;
 }
 
 .topic-edit-wrapper {
+  min-width: 100vw;
+  min-height: 100vh;
   padding-top: 120px;
+  background-color: #00FA9A;
 }
 
 .topic-index-wrapper {
-  padding-top: 70px;
-  background-color: #fafafa;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding-top: 120px;
+  background-color: #00FFFF;
   .topic-index-single {
     background-color: #fff;
     padding-top: 20px;
@@ -179,16 +165,24 @@ h3 {
 }
 
 .comment-new-wrapper {
+  min-width: 100vw;
+  min-height: 100vh;
   padding-top: 120px;
+  background-color: #F08080;
 }
 
 .comment-edit-wrapper {
+  min-width: 100vw;
+  min-height: 100vh;
   padding-top: 120px;
+  background-color: #FA8072;
 }
 
 .topic-search-wrapper {
-  padding-top: 70px;
-  background-color: #fafafa;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding-top: 120px;
+  background-color: #DEB887;
   .topic-index-single {
     background-color: #fff;
     padding-top: 20px;
@@ -214,19 +208,19 @@ h3 {
     .favorite-icon {
       font-weight: 900;
       font-family: "Font Awesome 5 Free";
-      color: black;
+      color: #000000;
     }
     
     .favorite-icon-red {
       font-weight: 900;
       font-family: "Font Awesome 5 Free";
-      color: red;
+      color: #FF0000;
     }
     
     .comment-icon {
       font-weight: 400;
       font-family: "Font Awesome 5 Free";
-      color: black;
+      color: #000000;
     }
   }
 }

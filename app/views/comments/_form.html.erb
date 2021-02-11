@@ -1,6 +1,5 @@
 <%= form_with model: [@topic, @comment] do |form| %>
   <div class="form-group">
-    <%= form.label :本文 %>
     <%= form.text_area :content, class: 'form-control' %>
     <%= form.hidden_field :topic_id, :value => params[:topic_id] %>
   </div>

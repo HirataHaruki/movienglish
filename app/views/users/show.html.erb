@@ -9,10 +9,10 @@
     <h2 class="user-show-title">
       <%= @user.name + "さんの投稿一覧" %>
     </h2>
-    <% @user.topics.each do |usertopic| %>
-      <div class="topic-index-single">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <% @user.topics.each do |usertopic| %>
+          <div class="topic-index-single">
             <h3 class="topic-title user-show-text">
               <%= "作品名:" + usertopic.title %>
             </h3>
@@ -28,8 +28,8 @@
             <%= link_to '編集', edit_topic_path(usertopic.id), class:'user-show-text' %>
             <%= link_to '削除', topic_path(usertopic.id), method: :delete, data: {confirm: "本当に削除しますか?"}, class:'user-show-text' %>
           </div>
-        </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
