@@ -9,8 +9,8 @@
     <h2 class="user-show-title">
       <%= @user.name + "さんの投稿一覧" %>
     </h2>
-    <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-sm-8 col-10">
         <% @user.topics.each do |usertopic| %>
           <div class="topic-index-single">
             <h3 class="topic-title user-show-text">

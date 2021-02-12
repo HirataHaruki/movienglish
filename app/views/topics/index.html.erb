@@ -1,7 +1,7 @@
 <div class="topic-index-wrapper">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-sm-8 col-10">
         <% @topics.each do |topic| %>
           <div class="topic-index-single">
             <h2 class="topic-author">
@@ -50,7 +50,7 @@
                   </p>
                   <% if logged_in? && current_user.id == comment.user_id %>
                     <%= link_to 'コメント編集', edit_topic_comment_path(topic_id: topic.id, id: comment.id), class: 'topic-text' %>
-                    <%= link_to 'コメント削除', topic_comment_path(topic_id: topic.id, id: comment.id), method: :delete, class: 'topic-text' %>
+                    <%= link_to 'コメント削除', topic_comment_path(topic_id: topic.id, id: comment.id), method: :delete, data: {confirm: "本当に削除しますか?"}, class: 'topic-text' %>
                   <% end %>
                 <% end %>
                   <% if logged_in? && current_user.id == topic.user_id %>
