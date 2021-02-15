@@ -1,24 +1,30 @@
-# README
+#Movienglish
+英語学習のための映画レビューサイト。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#概要
+英語学習と映画レビューの要素を掛け合わせたサイト。
+ユーザーは自身が英語学習に用いた作品の内容や難易度などを投稿する。
 
-Things you may want to cover:
+#使い方
+ユーザーはまずトップページにて、ログインもしくは新規登録をする。
+「マイページ」では、自身の投稿件数を見ることができる。
+また、自身の投稿の編集・削除ができる。
+「みんなの投稿」や「投稿を検索」をクリックすると、ほかの人の投稿を閲覧できる。
+ログインや登録をしていなくとも、「みんなの投稿」や「投稿を検索」でほかの人の投稿をみることができる。
+ただし、好評価・低評価・コメント機能はログインしているユーザーのみ使用可能。
 
-* Ruby version
+#機能
+ユーザー登録・ログイン機能
+投稿機能
+投稿に対するコメント・好評価・低評価機能
+投稿検索機能
 
-* System dependencies
+#使用技術
+Ruby 2.6.3
+Rails 5.2.4.4
+Rspec-rails 4.0.2
+bootstrap 4.6.0
+jquery-rails 4.4.0
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#ライセンス情報
+"Movienglish" is under [MIT license](http://en.wikipedia.org/wiki/MIT_License)
