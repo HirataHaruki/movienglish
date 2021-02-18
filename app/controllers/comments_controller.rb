@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def new
-    @topic = Topic.find_by(params[:topic_id])
+    @topic = Topic.find(params[:id])
     @comment = Comment.new
   end
   
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   end
   
   def edit
-    @topic = Topic.find_by(id: params[:id])
+    @topic = Topic.find(params[:id])
     @comment = Comment.find(params[:id])
   end
   
