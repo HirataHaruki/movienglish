@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def new
-    @topic = find_by_topic_params_id
+    @topic = Topic.find_by(params[:topic_id])
     @comment = Comment.new
   end
   
@@ -15,12 +15,12 @@ class CommentsController < ApplicationController
   end
   
   def edit
-    @topic = find_by_topic_params_id
-    @comment = find_comment_by_id
+    @topic = Topic.find_by(params[:topic_id])
+    @comment = Comment.find(params[:id])
   end
   
   def update
-    @comment = find_comment_by_id
+    @comment = Comment.find(params[:id])
     
     if @comment.update(comment_params)
       redirect_to topics_path, success: 'コメントを編集しました'
@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
   end
   
   def destroy
-    @comment = find_comment_by_id
+    @comment = Comment.find(params[:id])
     
     if @comment.destroy
       redirect_to topics_path, success: 'コメントを削除しました'
@@ -44,13 +44,5 @@ class CommentsController < ApplicationController
   private
   def comment_params
     params.require(:comment).permit(:content, :topic_id, :user_id)
-  end
-  
-  def find_comment_by_id
-    Comment.find(params[:id])
-  end
-  
-  def find_by_topic_params_id
-    Topic.find_by(params[:topic_id])
   end
 end
