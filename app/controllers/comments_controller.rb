@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   end
   
   def edit
-    @topic = Topic.find_by(params[:topic_id])
+    @topic = Topic.find_by(id: params[:id])
     @comment = Comment.find(params[:id])
   end
   
