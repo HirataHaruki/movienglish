@@ -12,7 +12,7 @@ class UnfavoritesController < ApplicationController
   end
   
   def destroy
-    Unfavorite.find(params[:id]).destroy
+    Unfavorite.find_by(topic_id: params[:topic_id]).destroy
     flash[:success] = "低評価登録を解除しました"
     redirect_to topics_path
   end
