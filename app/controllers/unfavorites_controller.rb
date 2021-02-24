@@ -12,8 +12,13 @@ class UnfavoritesController < ApplicationController
   end
   
   def destroy
-    Unfavorite.find_by(params[:topic_id]).destroy
-    flash[:info] = "低評価登録を解除しました"
-    redirect_to topics_path
+    @unfavorite = Unfavorite.find(params[:id])
+    
+    if @unfavorite.destroy
+      redirect_to topics_path, info: '低評価登録を解除しました'
+    else
+      flash.now[:danger] = '低評価登録を解除できませんでした'
+      redirect_to topics_path
+    end
   end
 end

@@ -16,8 +16,13 @@ class FavoritesController < ApplicationController
   end
   
   def destroy
-    Favorite.find_by(params[:topic_id]).destroy
-    flash[:info] = "好評価登録を解除しました"
-    redirect_to topics_path
+    @favorite = Favorite.find(params[:id])
+    
+    if @favorite.destroy
+      redirect_to topics_path, info: '好評価を解除しました'
+    else
+      flash.now[:danger] = '好評価を解除できませんでした'
+      redirect_to topics_path
+    end
   end
 end
